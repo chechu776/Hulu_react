@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Category = () => {
+const Category = ({image,text}) => {
   return (
-    <div>
-        <img src="" alt="" />
+    <div className=''>
+        <a href="" className='flex flex-col gap-2 justify-center items-center'>
+            <img src={image} alt="" className='w-17 h-17'/>
+            <p className='font-semibold text-sm '>{text}</p>
+        </a>
     </div>
   )
 }

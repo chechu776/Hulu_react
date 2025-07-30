@@ -8,7 +8,7 @@ import dots from "../assets/imgi_13_header_3verticalDots-ea7819.svg"
 
 function Header() {
     return (
-        <header className="flex items-center w-full h-16 gap-10 px-6 ">
+        <header className="flex items-center w-full h-16 gap-10 px-6 bg-white">
             <div>
                 <a href="" className="flex"><img src={flipKart} alt="logo" /></a>
             </div>
