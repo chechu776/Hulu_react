@@ -1,10 +1,12 @@
+import Header from "./components/Header.jsx"
+import "./index.css"
+
 
 function App() {
-  
   return (
-    <h1 className="text-red-700">
-      Helllo
-    </h1>
+    <>
+      <Header />
+    </>
   )
 }
 
