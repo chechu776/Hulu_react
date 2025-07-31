@@ -11,8 +11,8 @@ import teddy from "./assets/teddy.webp";
 import tv from "./assets/tv.webp";
 import "./index.css"
 
-const category = [{ image: scooter, text: "Minutes" },
-{ image: tablet, text: "Mobile & Tablets" },
+const category = [{ image: scooter, text: "Minutes", data: ["Phone"] },
+{ image: tablet, text: "Mobile & Tablets", },
 { image: fashion, text: "Fashion" },
 { image: electronics, text: "Electronics" },
 { image: furniture, text: "Home & Furnitures" },
@@ -22,20 +22,13 @@ const category = [{ image: scooter, text: "Minutes" },
 { image: grocery, text: "Grocery" },
 ]
 
+
 function App() {
   return (
     <div className="w-full bg-gray-100">
       <Header />
       <section className="bg-white  mx-4 my-2 h-30 flex justify-center gap-12 items-center shadow-2xs">
-        <Category image={scooter} text={"Minutes"} />
-        <Category image={tablet} text={"Mobile & Tablets"} />
-        <Category image={fashion} text={"Fashion"} />
-        <Category image={electronics} text={"Electronics"} />
-        <Category image={furniture} text={"Home & Furnitures"} />
-        <Category image={tv} text={"TVs & Appiances"} />
-        <Category image={flight} text={"Flight Booking"} />
-        <Category image={teddy} text={"Beauty, Food.."} />
-        <Category image={grocery} text={"Grocery"} />
+        {category.map(c => <Category image={c.image} text={c.text} data={c?.data} />)}
       </section>
     </div>
 
