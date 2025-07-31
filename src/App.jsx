@@ -2,6 +2,10 @@
 import Header from "./components/Header.jsx"
 import Category from "./components/Category.jsx"
 import Scroll from "./components/Scroll.jsx";
+import Items from "./components/Items.jsx";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 //category images
 import scooter from "./assets/scooter.webp";
@@ -23,6 +27,17 @@ import image5 from "./assets/imgi_183_2dcfeaadc16a5cd8.jpg"
 import image6 from "./assets/imgi_187_b1bc466d7a9d5ccf.jpg"
 import image7 from "./assets/imgi_192_351eb4bcb85e3319.jpg"
 
+//electronics image
+import flightbook from "./assets/flightbook.webp"
+import buds from "./assets/buds.webp"
+import asusmonitor from "./assets/asusmonitor.webp"
+import watch from "./assets/watch.webp"
+import sonyspeeker from "./assets/sonyspeeker.webp"
+import mirrorlesscam from "./assets/mirrorlesscam.webp"
+import dellmonitor from "./assets/dellmonitor.webp"
+import projector from "./assets/projector.webp"
+import fastrackwatch from "./assets/fastrackwatch.webp"
+
 
 //style
 import "./index.css"
@@ -42,11 +57,84 @@ const scroll = [
   { image: image1 },
   { image: image2 },
   { image: image3 },
-  { image: image4 },
   { image: image5 },
   { image: image6 },
+  { image: image4 },
   { image: image7 },
 ]
+
+const electro = [
+  { image: buds, text: "Best Truewireless", price: "Grab Now" },
+  { image: asusmonitor, text: "Monitors", price: "From ₹6599" },
+  { image: watch, text: "Noise Smartwatch", price: "From ₹1099" },
+  { image: sonyspeeker, text: "Best Selling Speaker", price: "From ₹499" },
+  { image: mirrorlesscam, text: "Mirrorless Camera", price: "From ₹5099" },
+  { image: dellmonitor, text: "Best Truewireless", price: "Grab Now" },
+  { image: projector, text: "Best Truewireless", price: "Grab Now" },
+  { image: fastrackwatch, text: "Best Truewireless", price: "Grab Now" },
+]
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style, display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "#2d2d2d",
+        borderRadius: "10% 0 0% 10%",
+        width: "40px",
+        height: "80px",
+        right: 0,
+        zIndex: 1,
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style, display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "#2d2d2d",
+        borderRadius: "0 10% 10% 0",
+        width: "40px",
+        height: "80px",
+        left: "0px",
+        zIndex: 1,
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+var settings1 = {
+  dots: true,
+  infinite: true,
+  speed: 1000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />
+};
+
+var settings2 = {
+  slidesToShow: 5,
+  slidesToScroll: 2,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />
+};
+
 
 
 function App() {
@@ -56,8 +144,31 @@ function App() {
       <section className="bg-white  mx-4 my-2 h-30 flex justify-center gap-10 items-center shadow-2xs">
         {category.map((c, i) => <Category key={i} image={c.image} text={c.text} data={c?.data} />)}
       </section>
-      <section className="bg-white  mx-4 my-3 h-60 gap-12 items-center shadow-2xs scroll-smooth">
-          {scroll.map((s, i) => <Scroll key={i} image={s.image} />)}
+      <section className="bg-white  mx-4 my-3 h-68 gap-12 items-center shadow-2xs">
+        <Slider {...settings1}>{scroll.map((s, i) => <Scroll key={i} image={s.image} />)} </Slider>
+      </section>
+      <section className="flex items-center justify-center gap-4 px-4 w-full ">
+        <div className="w-10/12 h-84  bg-white p-4 shadow-2xs">
+          <h1 className="text-2xl font-semibold">Best of Electronics</h1>
+          <div className=" items-center gap-6 py-8">
+            <Slider {...settings2}>{electro.map((e, i) => <Items key={i} image={e.image} text={e.text} price={e.price} />)}</Slider>
+          </div>
+        </div>
+        <a href="" className="w-2/12">
+          <img src={flightbook} alt="" className="object-cover" />
+        </a>
+      </section>
+      <section className="px-4 mt-3 w-full ">
+
+        <div className="w-full h-84  bg-white shadow-2xs">
+          <div className=" p-4 font-semibold">
+            <h1 className="text-2xl font-semibold">Beauty,Food,Toys &more </h1>
+          </div>
+          <div className="py-8">
+            <Slider {...settings2}>{electro.map((e, i) => <Items key={i} image={e.image} text={e.text} price={e.price} />)}</Slider>
+          </div>
+
+        </div>
       </section>
     </div>
   )

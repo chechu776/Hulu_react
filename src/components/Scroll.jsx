@@ -1,11 +1,8 @@
-import React from 'react'
 
 const Scroll = ({ image }) => {
     return (
         <div>
-            <a href="">
-                <img src={image} alt="scroll item"/>
-            </a>
+            <img src={image} alt="scroll item" className="cursor-pointer"/>
         </div>
     )
 }
