@@ -11,14 +11,14 @@ import teddy from "./assets/teddy.webp";
 import tv from "./assets/tv.webp";
 import "./index.css"
 
-const category = [{ image: scooter, text: "Minutes", data: ["Phone"] },
+const category = [{ image: scooter, text: "Minutes", },
 { image: tablet, text: "Mobile & Tablets", },
-{ image: fashion, text: "Fashion" },
-{ image: electronics, text: "Electronics" },
-{ image: furniture, text: "Home & Furnitures" },
+{ image: fashion, text: "Fashion", data: ["Men's top wear", "Men's bottom wear", "Men's Footwear", "Women's top wear", "Women's bottom wear", "Women's Footwear"] },
+{ image: electronics, text: "Electronics", data: ["Cameras and Accessories", "Electronics GST store", "Computer Peripherals", "Gaming", "Health & Personal Care", "Laptop Accessories"]   },
+{ image: furniture, text: "Home & Furnitures", data:["Home Furnishings","furniture","Living room Furniture","Kitchen & Dining","Bedroom Furniture","Space saving Furniture"] },
 { image: tv, text: "TVs & Appiances" },
 { image: flight, text: "Flight Booking" },
-{ image: teddy, text: "Beauty, Food.." },
+{ image: teddy, text: "Beauty, Food..",data:["Beauty & Personal Care","Men's Grooming","Food & Drinks","Baby Care","Nutrition & Personal Care"] },
 { image: grocery, text: "Grocery" },
 ]
 
@@ -28,7 +28,7 @@ function App() {
     <div className="w-full bg-gray-100">
       <Header />
       <section className="bg-white  mx-4 my-2 h-30 flex justify-center gap-12 items-center shadow-2xs">
-        {category.map(c => <Category image={c.image} text={c.text} data={c?.data} />)}
+        {category.map((c,i) => <Category key={i} image={c.image} text={c.text} data={c?.data} />)}
       </section>
     </div>
 

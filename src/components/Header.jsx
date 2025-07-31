@@ -18,9 +18,9 @@ function Header() {
             </div>
             <div>
                 <a href="" className="flex gap-2 hover:bg-blue-600 hover:text-white transition-all px-2 py-2 rounded-lg group">
-                    <img src={guest} alt="guest" />
+                    <img src={guest} alt="guest" className="group-hover:invert" />
                     <p>Login</p>
-                    <img src={dropDown} alt="dropdown" className="group-hover:rotate-180 group-hover:transition-all group-hover:duration-300"/>
+                    <img src={dropDown} alt="dropdown" className="group-hover:rotate-180 group-hover:transition-all group-hover:duration-300 group-hover:invert"/>
                 </a>
             </div>
             <div>
