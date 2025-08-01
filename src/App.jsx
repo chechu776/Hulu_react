@@ -2,6 +2,7 @@
 import Header from "./components/Header.jsx"
 import Category from "./components/Category.jsx"
 import Scroll from "./components/Scroll.jsx";
+import Offergrid from "./components/Offergrid.jsx";
 import Items from "./components/Items.jsx";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -39,6 +40,27 @@ import projector from "./assets/projector.webp"
 import fastrackwatch from "./assets/fastrackwatch.webp"
 
 
+//home images
+import waterbottle from "./assets/waterbottle.webp"
+import lunchbox from "./assets/lunchbox.webp"
+import faucets from "./assets/faucets.webp"
+import mop from "./assets/mop.webp"
+import gasstove from "./assets/gasstove.webp"
+import steelbottle from "./assets/steelbottle.webp"
+import casserole from "./assets/casserole.webp"
+import pressurecooker from "./assets/pressurecooker.webp"
+
+
+//offergrid images
+
+import boya from "./assets/boya.webp"
+import sexualwellness from "./assets/sexualwellness.webp"
+import skincare from "./assets/skincare.webp"
+import topwatches from "./assets/topwatches.webp"
+import acerswift from "./assets/acerswift.webp"
+import tshirts from "./assets/tshirts.webp"
+
+
 //style
 import "./index.css"
 
@@ -73,6 +95,27 @@ const electro = [
   { image: projector, text: "Best Truewireless", price: "Grab Now" },
   { image: fastrackwatch, text: "Best Truewireless", price: "Grab Now" },
 ]
+
+const home = [
+  { image: waterbottle, text: "Water Bottles", price: "From ₹199" },
+  { image: lunchbox, text: "Lunch Boxes", price: "From ₹129" },
+  { image: faucets, text: "Water Bottles", price: "From ₹199" },
+  { image: mop, text: "Faucets", price: "Up to 80% Off" },
+  { image: gasstove, text: "Gas Stoves", price: "From ₹999" },
+  { image: steelbottle, text: "Steel Bottles", price: "From ₹169" },
+  { image: casserole, text: "Casserole", price: "From ₹299" },
+  { image: pressurecooker, text: "Pressure Cookers", price: "From ₹549" }
+]
+
+const offergrid=[
+  {image:boya},
+  {image:sexualwellness},
+  {image:skincare},
+  {image:topwatches},
+  {image:acerswift},
+  {image:tshirts},
+]
+
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -135,6 +178,12 @@ var settings2 = {
   prevArrow: <SamplePrevArrow />
 };
 
+var settings3 = {
+  slidesToShow: 7,
+  slidesToScroll: 2,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />
+};
 
 
 function App() {
@@ -159,17 +208,30 @@ function App() {
         </a>
       </section>
       <section className="px-4 mt-3 w-full ">
-
-        <div className="w-full h-84  bg-white shadow-2xs">
+        <div className="w-full h-80  bg-white shadow-2xs">
           <div className=" p-4 font-semibold">
-            <h1 className="text-2xl font-semibold">Beauty,Food,Toys &more </h1>
+            <h1 className="text-2xl font-semibold">Home</h1>
           </div>
           <div className="py-8">
-            <Slider {...settings2}>{electro.map((e, i) => <Items key={i} image={e.image} text={e.text} price={e.price} />)}</Slider>
+            <Slider {...settings3}>{home.map((h, i) => <Items key={i} image={h.image} text={h.text} price={h.price} />)}</Slider>
           </div>
-
         </div>
       </section>
+      <section className="px-4 mt-3 w-full ">
+        <div className="bg-white grid grid-cols-3 h-full gap-x-2 gap-y-4 px-1">
+            {offergrid.map((o,i)=><Offergrid key={i} image={o.image}/>)}
+        </div>
+      </section>
+      {/* <section className="px-4 mt-3 w-full ">
+        <div className="w-full h-80  bg-white shadow-2xs">
+          <div className=" p-4 font-semibold">
+            <h1 className="text-2xl font-semibold">Home</h1>
+          </div>
+          <div className="py-8">
+            <Slider {...settings3}>{home.map((h, i) => <Items key={i} image={h.image} text={h.text} price={h.price} />)}</Slider>
+          </div>
+        </div>
+      </section> */}
     </div>
   )
 }
