@@ -11,4 +11,3 @@ const Brands = ({image}) => {
 }
 
 export default Brands
-console.log(err);
