@@ -3,6 +3,7 @@ import Header from "./components/Header.jsx"
 import Category from "./components/Category.jsx"
 import Scroll from "./components/Scroll.jsx";
 import Offergrid from "./components/Offergrid.jsx";
+import Brands from "./components/Brands.jsx";
 import Items from "./components/Items.jsx";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -50,7 +51,6 @@ import steelbottle from "./assets/steelbottle.webp"
 import casserole from "./assets/casserole.webp"
 import pressurecooker from "./assets/pressurecooker.webp"
 
-
 //offergrid images
 
 import boya from "./assets/boya.webp"
@@ -60,6 +60,18 @@ import topwatches from "./assets/topwatches.webp"
 import acerswift from "./assets/acerswift.webp"
 import tshirts from "./assets/tshirts.webp"
 
+//brand images
+
+import bolt from "./assets/bolt.webp"
+import s25 from "./assets/s25.webp"
+import summersale from "./assets/summersale.webp"
+import boat from "./assets/boat.webp"
+import boatbattery from "./assets/boatbattery.webp"
+import tcltv from "./assets/tcltv.webp"
+import fireboltt from "./assets/fireboltt.webp"
+import boult from "./assets/boult.webp"
+import samsung4k from "./assets/samsung4k.webp"
+import noiseevolve from "./assets/noiseevolve.webp"
 
 //style
 import "./index.css"
@@ -114,6 +126,19 @@ const offergrid=[
   {image:topwatches},
   {image:acerswift},
   {image:tshirts},
+]
+
+const brand =[
+  {image:bolt},
+  {image:s25},
+  {image:summersale},
+  {image:boat},
+  {image:boatbattery},
+  {image:tcltv},
+  {image:fireboltt},
+  {image:boult},
+  {image:samsung4k},
+  {image:noiseevolve},
 ]
 
 
@@ -172,19 +197,31 @@ var settings1 = {
 };
 
 var settings2 = {
-  slidesToShow: 5,
-  slidesToScroll: 2,
+  slidesToShow: 5.6,
+  slidesToScroll: 5,
+  infinite:false,
+  speed:500,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />
 };
 
 var settings3 = {
-  slidesToShow: 7,
+  slidesToShow: 6.8,
   slidesToScroll: 2,
+  infinite:false,
+  speed:500,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />
 };
 
+var settings4 = {
+  slidesToShow: 3.3,
+  infinite:false,
+  speed:800,
+  slidesToScroll: 2,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />
+};
 
 function App() {
   return (
@@ -222,16 +259,16 @@ function App() {
             {offergrid.map((o,i)=><Offergrid key={i} image={o.image}/>)}
         </div>
       </section>
-      {/* <section className="px-4 mt-3 w-full ">
+      <section className="px-4 mt-3 w-full ">
         <div className="w-full h-80  bg-white shadow-2xs">
-          <div className=" p-4 font-semibold">
-            <h1 className="text-2xl font-semibold">Home</h1>
+          <div className=" pl-4 pt-4 font-semibold">
+            <h1 className="text-2xl font-semibold">Featured Brands</h1>
           </div>
-          <div className="py-8">
-            <Slider {...settings3}>{home.map((h, i) => <Items key={i} image={h.image} text={h.text} price={h.price} />)}</Slider>
+          <div className="py-5 px-4">
+            <Slider {...settings4}>{brand.map((b, i) => <Brands key={i} image={b.image}  />)}</Slider>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   )
 }
