@@ -1,4 +1,3 @@
-
 import dropDown from "../assets/download (1).svg";
 
 const Category = ({ image, text, data }) => {
